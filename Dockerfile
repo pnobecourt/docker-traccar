@@ -8,8 +8,8 @@ ARG VCS_REF
 
 # Labels
 LABEL org.label-schema.name="Traccar" \
-      org.label-schema.description="OpenJDK Debian based Traccar image"
-      org.label-schema.vendor="Paul NOBECOURT <paul.nobecourt@orange.fr>"
+      org.label-schema.description="OpenJDK Debian based Traccar image" \
+      org.label-schema.vendor="Paul NOBECOURT <paul.nobecourt@orange.fr>" \
       org.label-schema.url="https://github.com/pnobecourt/" \
       org.label-schema.version=$VERSION \
       org.label-schema.build-date=$BUILD_DATE \
