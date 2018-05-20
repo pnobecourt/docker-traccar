@@ -7,15 +7,15 @@ ARG BUILD_DATE
 ARG VCS_REF
 
 # Labels
-LABEL org.label-schema.name="Traccar" \
-      org.label-schema.description="OpenJDK Debian based Traccar image" \
-      org.label-schema.vendor="Paul NOBECOURT <paul.nobecourt@orange.fr>" \
-      org.label-schema.url="https://github.com/pnobecourt/" \
-      org.label-schema.version=$VERSION \
-      org.label-schema.build-date=$BUILD_DATE \
-      org.label-schema.vcs-url="https://github.com/pnobecourt/docker-traccar.git" \
-      org.label-schema.vcs-ref=$VCS_REF \
-      org.label-schema.schema-version="1.0"
+LABEL org.label-schema.name = "Traccar" \
+      org.label-schema.description = "OpenJDK Debian based Traccar image" \
+      org.label-schema.vendor = "Paul NOBECOURT <paul.nobecourt@orange.fr>" \
+      org.label-schema.url = "https://github.com/pnobecourt/" \
+      org.label-schema.version = $VERSION \
+      org.label-schema.build-date = $BUILD_DATE \
+      org.label-schema.vcs-url = "https://github.com/pnobecourt/docker-traccar.git" \
+      org.label-schema.vcs-ref = $VCS_REF \
+      org.label-schema.schema-version = "1.0"
 
 # Define the ENV variable
 ENV LANG C.UTF-8
@@ -33,7 +33,7 @@ RUN echo "deb http://www.deb-multimedia.org stretch main non-free" | tee -a /etc
            /var/lib/apt/lists/* \
            /var/tmp/*
 
-# Install gosu, suexec and supervisor and copy supervisor's configuration file
+# Install supervisor and copy supervisor's configuration file
 RUN apt-get update && \
     apt-get install -y supervisor && \
     mkdir -p /var/log/supervisor && \
