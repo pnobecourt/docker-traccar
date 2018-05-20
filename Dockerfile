@@ -13,7 +13,7 @@ LABEL org.label-schema.name = "Traccar" \
       org.label-schema.url = "https://github.com/pnobecourt/" \
       org.label-schema.version = $VERSION \
       org.label-schema.build-date = $BUILD_DATE \
-      org.label-schema.vcs-url = "https://github.com/pnobecourt/docker-traccar.git" \
+      org.label-schema.vcs-url = "https://github.com/pnobecourt/docker-traccar" \
       org.label-schema.vcs-ref = $VCS_REF \
       org.label-schema.schema-version = "1.0"
 
