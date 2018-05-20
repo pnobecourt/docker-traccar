@@ -63,9 +63,6 @@ RUN set -ex && \
     unzip -qo /tmp/traccar.zip -d $TRACCAR_VOL && \
     rm /tmp/traccar.zip
 
-# Volumes
-VOLUME ["/opt/traccar/conf","/opt/traccar/data","/opt/traccar/logs"]
-    
 # Ports configuration
 EXPOSE 8082 5000-5150 5000-5150/udp
 
