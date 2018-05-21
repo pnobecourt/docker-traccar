@@ -17,9 +17,11 @@ LABEL org.label-schema.name="Traccar" \
       org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.schema-version="1.0"
 
-# Define the ENV variable
+# Define the ENV variable for creating docker image
 ENV LANG C.UTF-8
 ENV DEBIAN_FRONTEND noninteractive
+ENV SHELL=/bin/bash
+ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ENV TRACCAR_VERSION 3.16
 ENV TRACCAR_VOL /opt/traccar
 
