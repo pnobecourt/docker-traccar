@@ -28,7 +28,7 @@ RUN apk update && \
         unzip \
         openjdk8-jre && \
     curl -L -S https://github.com/tananaev/traccar/releases/download/v$TRACCAR_VERSION/traccar-other-$TRACCAR_VERSION.zip -o /tmp/traccar.zip && \
-    mkdir $TRACCAR_VOL && \
+    mkdir -p $TRACCAR_VOL && \
     unzip -qo /tmp/traccar.zip -d $TRACCAR_VOL && \
     rm /tmp/traccar.zip && \
     apk del --no-cache curl unzip
