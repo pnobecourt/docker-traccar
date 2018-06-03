@@ -1,19 +1,11 @@
 #!/usr/bin/with-contenv bash
 
-# Check that Traccar folder exist, then create them
-if [ -d "$TRACCAR_VOL" ];then
-    echo "Le dossier $TRACCAR_VOL existe déjà";
-else
-    echo "$TRACCAR_VOL n'existe pas encore, création"
-    mkdir -p $TRACCAR_VOL
-fi
-
-# Check that Traccar config files exists, then copy default ones
+# Check if Traccar config files exists, else copy default ones
 for file in default traccar; do
     if [ -f "$TRACCAR_VOL/conf/$file.xml" ];then
-        echo "Le fichier $TRACCAR_VOL/conf/$file.xml existe déjà";
+        echo "Le fichier $TRACCAR_VOL/conf/$file.xml existe";
     else
-        echo "Le fichier $TRACCAR_VOL/conf/$file.xml n'existe, copie du fichier par défaut"
+        echo "Le fichier $TRACCAR_VOL/conf/$file.xml n'existe pas, copie du fichier par défaut"
         cp $TRACCAR_VOL/init-conf/$file.xml $TRACCAR_VOL/conf/$file.xml
     fi
 done

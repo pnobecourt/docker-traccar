@@ -1,6 +1,6 @@
 # traccar
 
-This is a OpenJDK Debian-based Traccar Docker image.
+This is an Alpine based Traccar Docker image.
 
 Create workdirs :
 
