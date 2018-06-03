@@ -14,7 +14,7 @@ for file in default traccar; do
         echo "Le fichier $TRACCAR_VOL/conf/$file.xml existe déjà";
     else
         echo "Le fichier $TRACCAR_VOL/conf/$file.xml n'existe, copie du fichier par défaut"
-        cp $TRACCAR_VOL/conf/$file.xml.init $TRACCAR_VOL/conf/$file.xml
+        cp $TRACCAR_VOL/init-conf/$file.xml $TRACCAR_VOL/conf/$file.xml
     fi
 done
 
