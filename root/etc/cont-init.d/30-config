@@ -1,0 +1,14 @@
+#!/usr/bin/with-contenv bash
+
+# Check that squeezebox folders exist, then create them
+for subdir in prefs logs cache playlists; do
+    if [ -d "$SQUEEZE_VOL/$subdir" ];then
+        echo "Le dossier $SQUEEZE_VOL/$subdir existe déjà";
+    else
+        echo "Le dossier $SQUEEZE_VOL/$subdir n'existe pas encore, création en cours"
+        mkdir -p $SQUEEZE_VOL/$subdir
+    fi
+done
+
+# Fix permissions
+chown -R dockeruser:dockeruser $SQUEEZE_VOL

@@ -1,0 +1,3 @@
+#!/usr/bin/with-contenv bash
+
+exec s6-setuidgid dockeruser java -jar $TRACCAR_VOL/tracker-server.jar $TRACCAR_VOL/conf/traccar.xml
