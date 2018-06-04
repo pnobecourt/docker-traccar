@@ -19,10 +19,9 @@ LABEL org.label-schema.name="Traccar" \
       org.label-schema.schema-version="1.0"
 
 # Define the ENV variable for creating docker image
-ENV TRACCAR_VOL=/srv/apps/traccar \
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$TRACCAR_VOL
+ENV TRACCAR_VOL=/srv/apps/traccar
 
-# Install S6Overlay
+# Install Traccar
 RUN apk update && \
     apk add --no-cache \
         curl \
@@ -33,6 +32,7 @@ RUN apk update && \
     unzip -qo /tmp/traccar.zip -d $TRACCAR_VOL && \
     mkdir -p $TRACCAR_VOL/init-conf && \
     cp $TRACCAR_VOL/conf/* $TRACCAR_VOL/init-conf/ && \
+    sed -e 's/\.\/conf\/default.xml/\&TRACCAR_VOL\/conf\/default\.xml/g' $TRACCAR_VOL/init-conf/traccar.xml && \
     rm /tmp/traccar.zip && \
     apk del --no-cache curl unzip
 
