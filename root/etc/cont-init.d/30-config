@@ -7,6 +7,7 @@ for file in default traccar; do
     else
         echo "Le fichier $TRACCAR_VOL/conf/$file.xml n'existe pas, copie du fichier par défaut"
         cp $TRACCAR_VOL/init-conf/$file.xml $TRACCAR_VOL/conf/$file.xml
+        sed -e 's/\.\/conf\/default.xml/\&TRACCAR_VOL\/conf\/default\.xml/g' $TRACCAR_VOL/conf/traccar.xml
     fi
 done
 
