@@ -15,3 +15,6 @@ done
 
 # Fix permissions
 chown -R dockeruser:dockeruser $TRACCAR_VOL
+
+# Working dir
+cd $TRACCAR_VOL
