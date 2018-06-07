@@ -32,7 +32,6 @@ RUN apk update && \
     unzip -qo /tmp/traccar.zip -d $TRACCAR_VOL && \
     mkdir -p $TRACCAR_VOL/init-conf && \
     cp $TRACCAR_VOL/conf/* $TRACCAR_VOL/init-conf/ && \
-    sed -e 's/\.\/conf\/default.xml/\&TRACCAR_VOL\/conf\/default\.xml/g' $TRACCAR_VOL/init-conf/traccar.xml && \
     rm /tmp/traccar.zip && \
     apk del --no-cache curl unzip
 
