@@ -38,6 +38,9 @@ RUN apk update && \
 # Add files
 ADD /root /
 
+# Define Workdir
+WORKDIR $TRACCAR_VOL
+
 # Ports configuration
 EXPOSE 8082 5000-5150 5000-5150/udp
 
