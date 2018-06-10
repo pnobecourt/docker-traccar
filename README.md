@@ -1,6 +1,8 @@
-# traccar
+# Traccar
 
 This is an Alpine based Traccar Docker image.
+
+WORK IN PROGRESS / NOT USEABLE
 
 Create workdirs :
 
