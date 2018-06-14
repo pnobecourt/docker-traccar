@@ -19,7 +19,10 @@ LABEL org.label-schema.name="Traccar" \
       org.label-schema.schema-version="1.0"
 
 # Define the ENV variables
-ENV TRACCAR_VOL=/srv/apps/traccar
+ENV INSTALL_LOCATION=/srv/apps/traccar \
+CONF_LOCATION=/srv/conf/traccar \
+DATA_LOCATION=/srv/data/traccar \
+DOWNLOAD_LOCATION=$CONF_LOCATION/downloads
 
 # Install Traccar
 RUN apk update && \
@@ -27,19 +30,18 @@ RUN apk update && \
         curl \
         unzip \
         openjdk8-jre && \
-    curl -L -S https://github.com/tananaev/traccar/releases/download/v$TRACCAR_VERSION/traccar-other-$TRACCAR_VERSION.zip -o /tmp/traccar.zip && \
-    mkdir -p $TRACCAR_VOL && \
-    unzip -qo /tmp/traccar.zip -d $TRACCAR_VOL && \
-    mkdir -p $TRACCAR_VOL/init-conf && \
-    cp $TRACCAR_VOL/conf/* $TRACCAR_VOL/init-conf/ && \
-    rm /tmp/traccar.zip && \
+    mkdir -p $INSTALL_LOCATION $CONF_LOCATION $DATA_LOCATION $DOWNLOAD_LOCATION && \
+    curl -L -S https://github.com/tananaev/traccar/releases/download/v$TRACCAR_VERSION/traccar-other-$TRACCAR_VERSION.zip -o $DOWNLOAD_LOCATION/traccar-other-$TRACCAR_VERSION.zip && \
+    unzip -qo $DOWNLOAD_LOCATION/traccar-other-$TRACCAR_VERSION.zip -d $INSTALL_LOCATION && \
+    cp $INSTALL_LOCATION/conf/* $CONF_LOCATION/ && \
+    rm $DOWNLOAD_LOCATION/traccar-other-$TRACCAR_VERSION.zip && \
     apk del --no-cache curl unzip
 
 # Add files
 ADD /root /
 
 # Define Workdir
-WORKDIR $TRACCAR_VOL
+WORKDIR $INSTALL_LOCATION
 
 # Ports configuration
 EXPOSE 8082 5000-5150 5000-5150/udp

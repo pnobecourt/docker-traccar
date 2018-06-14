@@ -1,17 +1,22 @@
 #!/usr/bin/with-contenv bash
 
 # Make folders
-mkdir -p $TRACCAR_VOL{/conf,/data,/logs}
+mkdir -p mkdir -p $INSTALL_LOCATION $CONF_LOCATION $DATA_LOCATION $DOWNLOAD_LOCATION
 
 # Check if Traccar config files exists, else copy default ones
 for file in default traccar; do
-    if [ -f "$TRACCAR_VOL/conf/$file.xml" ];then
-        echo "Le fichier $TRACCAR_VOL/conf/$file.xml existe";
+    if [ -f "$CONF_LOCATION/$file.xml" ];then
+        echo "Le fichier $CONF_LOCATION/$file.xml existe";
     else
-        echo "Le fichier $TRACCAR_VOL/conf/$file.xml n'existe pas, copie du fichier par défaut"
-        cp $TRACCAR_VOL/init-conf/$file.xml $TRACCAR_VOL/conf/$file.xml
+        echo "Le fichier $CONF_LOCATION/$file.xml n'existe pas, copie du fichier par défaut"
+        cp $INSTALL_LOCATION/conf/$file.xml $CONF_LOCATION/$file.xml
+        sed -e 's/\<entry key\=\'config\.default\'\>\.\/conf\/default\.xml\<\/entry\>/\<entry key\=\'config\.default\'\>\$CONF_LOCATION\/default\.xml\<\/entry\>/g' $CONF_LOCATION/traccar.xml
+        sed -e 's/\<entry key\=\'database\.url\'\>jdbc\:h2:\.\/data\/database\<\/entry\>/\<entry key\=\'database\.url\'\>jdbc\:h2\:$DATA_LOCATION\/database\<\/entry\>/g' $CONF_LOCATION/traccar.xml
     fi
 done
 
 # Fix permissions
-chown -R dockeruser:dockeruser $TRACCAR_VOL
+chown -R dockeruser:dockeruser $INSTALL_LOCATION
+chown -R dockeruser:dockeruser $CONF_LOCATION
+chown -R dockeruser:dockeruser $DATA_LOCATION
+chown -R dockeruser:dockeruser $DOWNLOAD_LOCATION
