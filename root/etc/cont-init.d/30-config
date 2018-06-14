@@ -10,10 +10,12 @@ for file in default traccar; do
     else
         echo "Le fichier $CONF_LOCATION/$file.xml n'existe pas, copie du fichier par défaut"
         cp $INSTALL_LOCATION/conf/$file.xml $CONF_LOCATION/$file.xml
-        sed -e 's/\<entry key\=\'config\.default\'\>\.\/conf\/default\.xml\<\/entry\>/\<entry key\=\'config\.default\'\>\$CONF_LOCATION\/default\.xml\<\/entry\>/g' $CONF_LOCATION/traccar.xml
-        sed -e 's/\<entry key\=\'database\.url\'\>jdbc\:h2:\.\/data\/database\<\/entry\>/\<entry key\=\'database\.url\'\>jdbc\:h2\:$DATA_LOCATION\/database\<\/entry\>/g' $CONF_LOCATION/traccar.xml
     fi
 done
+
+# Correct config files path
+sed -e 's/<entry key='config.default'>.\/conf\/default.xml<\/entry>/<entry key='config.default'>$CONF_LOCATION\/default.xml<\/entry>/g' $CONF_LOCATION/traccar.xml
+sed -e 's/<entry key='database.url'>jdbc:h2:.\/data\/database<\/entry>/<entry key='database.url'>jdbc:h2:$DATA_LOCATION\/database<\/entry>/g' $CONF_LOCATION/traccar.xml
 
 # Fix permissions
 chown -R dockeruser:dockeruser $INSTALL_LOCATION
