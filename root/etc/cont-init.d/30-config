@@ -16,6 +16,7 @@ done
 # Correct config files path
 sed -i 's/.\/conf\//\/srv\/conf\/traccar\//g' $CONF_LOCATION/traccar.xml
 sed -i 's/.\/data\//\/srv\/data\/traccar\//g' $CONF_LOCATION/traccar.xml
+sed -i 's/.\/schema\//\/srv\/apps\/traccar\/schema\//g' $CONF_LOCATION/default.xml
 
 # Fix permissions
 chown -R dockeruser:dockeruser $INSTALL_LOCATION
