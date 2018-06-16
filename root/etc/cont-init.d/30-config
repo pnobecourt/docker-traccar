@@ -14,8 +14,8 @@ for file in default traccar; do
 done
 
 # Correct config files path
-sed -e 's/.\/conf\//$CONF_LOCATION\//g' $CONF_LOCATION/traccar.xml
-sed -e 's/.\/data\//$DATA_LOCATION\//g' $CONF_LOCATION/traccar.xml
+sed -i 's/.\/conf\//\/srv\/conf\/traccar\//g' $CONF_LOCATION/traccar.xml
+sed -i 's/.\/data\//\/srv\/data\/traccar\//g' $CONF_LOCATION/traccar.xml
 
 # Fix permissions
 chown -R dockeruser:dockeruser $INSTALL_LOCATION
