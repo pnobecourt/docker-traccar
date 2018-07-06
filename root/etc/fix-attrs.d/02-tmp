@@ -1,0 +1,2 @@
+/tmp/downloads true dockeruser:dockeruser,$PUID:$PGID 0644 0755
+/tmp/conf true dockeruser:dockeruser,$PUID:$PGID 0644 0755
