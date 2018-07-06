@@ -35,7 +35,6 @@ RUN apk update && \
     mkdir -p $INSTALL_LOCATION $DOWNLOAD_LOCATION && \
     curl -L -S https://github.com/tananaev/traccar/releases/download/v$TRACCAR_VERSION/traccar-other-$TRACCAR_VERSION.zip -o $DOWNLOAD_LOCATION/traccar-other-$TRACCAR_VERSION.zip && \
     unzip -qo $DOWNLOAD_LOCATION/traccar-other-$TRACCAR_VERSION.zip -d $INSTALL_LOCATION && \
-    cp $CONF_LOCATION/* $CONF_TMP/ && \
     rm $DOWNLOAD_LOCATION/traccar-other-$TRACCAR_VERSION.zip && \
     apk del --no-cache curl unzip
 
