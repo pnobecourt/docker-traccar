@@ -32,11 +32,11 @@ RUN apk update && \
         curl \
         unzip \
         openjdk8-jre && \
-    mkdir -p $INSTALL_LOCATION $DOWNLOAD_LOCATION && \
+    mkdir -p $INSTALL_LOCATION $DOWNLOAD_LOCATION $CONF_TMP && \
     curl -L -S https://github.com/tananaev/traccar/releases/download/v$TRACCAR_VERSION/traccar-other-$TRACCAR_VERSION.zip -o $DOWNLOAD_LOCATION/traccar-other-$TRACCAR_VERSION.zip && \
     unzip -qo $DOWNLOAD_LOCATION/traccar-other-$TRACCAR_VERSION.zip -d $INSTALL_LOCATION && \
     rm $DOWNLOAD_LOCATION/traccar-other-$TRACCAR_VERSION.zip && \
-    apk del --no-cache curl unzip
+    apk del --no-cache unzip
 
 # Add files
 ADD /root /
