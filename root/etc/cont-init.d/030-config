@@ -4,14 +4,14 @@
 mkdir -p $INSTALL_LOCATION $DOWNLOAD_LOCATION
 
 # Check if Traccar config files exists, else copy default ones
-for file in default traccar; do
-    if [ -f "$CONF_LOCATION/$file.xml" ];then
-        echo "Le fichier $CONF_LOCATION/$file.xml existe";
-    else
-        echo "Le fichier $CONF_LOCATION/$file.xml n'existe pas, copie du fichier par défaut"
-        cp $CONF_TMP/$file.xml $CONF_LOCATION/$file.xml
-    fi
-done
+#for file in default traccar; do
+#    if [ -f "$CONF_LOCATION/$file.xml" ];then
+#        echo "Le fichier $CONF_LOCATION/$file.xml existe";
+#    else
+#        echo "Le fichier $CONF_LOCATION/$file.xml n'existe pas, copie du fichier par défaut"
+#        cp $CONF_TMP/$file.xml $CONF_LOCATION/$file.xml
+#    fi
+#done
 
 # Correct config files path
 #sed -i 's/.\/conf\//\/srv\/conf\/traccar\//g' $CONF_LOCATION/traccar.xml
