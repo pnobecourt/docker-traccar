@@ -40,6 +40,9 @@ RUN apk update && \
 # Add files
 ADD /root /
 
+# Define Volumes
+VOLUME [ "/srv/traccar/conf","/srv/traccar/data","/srv/traccar/logs" ]
+
 # Ports configuration
 EXPOSE 8082 5000-5150 5000-5150/udp
 
