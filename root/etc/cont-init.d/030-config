@@ -3,24 +3,6 @@
 # Make folders
 mkdir -p $INSTALL_LOCATION $DOWNLOAD_LOCATION
 
-# Check if Traccar config files exists, else copy default ones
-#for file in default traccar; do
-#    if [ -f "$CONF_LOCATION/$file.xml" ];then
-#        echo "Le fichier $CONF_LOCATION/$file.xml existe";
-#    else
-#        echo "Le fichier $CONF_LOCATION/$file.xml n'existe pas, copie du fichier par défaut"
-#        cp $CONF_TMP/$file.xml $CONF_LOCATION/$file.xml
-#    fi
-#done
-
-# Correct config files path
-#sed -i 's/.\/conf\//\/srv\/conf\/traccar\//g' $CONF_LOCATION/traccar.xml
-#sed -i 's/.\/data\//\/srv\/data\/traccar\//g' $CONF_LOCATION/traccar.xml
-#sed -i 's/.\/schema\//\/srv\/apps\/traccar\/schema\//g' $CONF_LOCATION/default.xml
-#sed -i 's/.\/web\//\/srv\/apps\/traccar\/web\//g' $CONF_LOCATION/default.xml
-#sed -i 's/.\/media\//\/srv\/apps\/traccar\/media\//g' $CONF_LOCATION/default.xml
-#sed -i 's/.\/log\//\/srv\/data\/traccar\/logs\//g' $CONF_LOCATION/default.xml
-
 # Fix permissions
 chown -R dockeruser:dockeruser $INSTALL_LOCATION
 chown -R dockeruser:dockeruser $DOWNLOAD_LOCATION

@@ -20,9 +20,9 @@ LABEL org.label-schema.name="Traccar" \
 
 # Define the ENV variables
 ENV INSTALL_LOCATION=/srv/traccar \
-CONF_LOCATION=${INSTALL_LOCATION}/conf \
-DATA_LOCATION=${INSTALL_LOCATION}/data \
-LOGS_LOCATION=${INSTALL_LOCATION}/logs \
+CONF_LOCATION=/srv/traccar/conf \
+DATA_LOCATION=/srv/traccar/data \
+LOGS_LOCATION=/srv/traccar/logs \
 DOWNLOAD_LOCATION=/tmp/downloads \
 CONF_TMP=/tmp/conf
 
