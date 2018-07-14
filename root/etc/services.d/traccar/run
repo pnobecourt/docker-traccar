@@ -1,3 +1,4 @@
 #!/usr/bin/with-contenv bash
 
-exec java -Djava.net.preferIPv4Stack=true -Xms512m -Xmx512m -jar $INSTALL_LOCATION/tracker-server.jar $CONF_LOCATION/traccar.xml
+cd $INSTALL_LOCATION
+exec java -Djava.net.preferIPv4Stack=true -Xms512m -Xmx512m -jar tracker-server.jar conf/traccar.xml

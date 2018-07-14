@@ -29,7 +29,6 @@ CONF_TMP=/tmp/conf
 # Install Traccar
 RUN apk update && \
     apk add --no-cache \
-        curl \
         unzip \
         openjdk8-jre && \
     mkdir -p $INSTALL_LOCATION $DOWNLOAD_LOCATION $CONF_TMP && \
@@ -40,9 +39,6 @@ RUN apk update && \
 
 # Add files
 ADD /root /
-
-# Define Workdir
-WORKDIR $INSTALL_LOCATION
 
 # Ports configuration
 EXPOSE 8082 5000-5150 5000-5150/udp
